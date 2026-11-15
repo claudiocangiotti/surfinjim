@@ -15,13 +15,14 @@ html{scroll-behavior:smooth}
 body{font-family:'Alte Haas Grotesk','Helvetica Neue',Arial,sans-serif;font-synthesis:none;background:var(--night);color:var(--night);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}ul{list-style:none}img{display:block;max-width:100%}
 .grain{position:absolute;inset:0;pointer-events:none;z-index:5;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:calc(16px + env(safe-area-inset-top,0px)) 28px 16px;display:flex;justify-content:space-between;align-items:center;transition:background .3s}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:calc(12px + env(safe-area-inset-top,0px)) 20px 12px 12px;display:flex;justify-content:space-between;align-items:center;gap:20px;transition:background .3s}
 .nav.s{background:rgba(26,10,5,.92);backdrop-filter:blur(10px)}
 .nav img{height:46px;width:auto}
-.nav ul{display:flex;gap:28px}
+.nav ul{display:flex;gap:28px;margin-left:auto}
+.nav .ig{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sand);border:1px solid rgba(255,244,224,.7);border-radius:99px;padding:7px 14px 7px 11px;transition:background .2s,color .2s,border-color .2s}.nav .ig svg{width:15px;height:15px;flex:none}.nav .ig:hover{background:var(--sand);color:var(--night);border-color:var(--sand)}
 .nav ul a{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--sand);display:inline-block;transition:color .2s}
 .nav ul a:hover{color:var(--yellow)}
-@media(max-width:700px){.nav ul{display:none}}
+@media(max-width:700px){.nav ul{display:none}.nav .ig{margin-left:auto;font-size:11px;padding:6px 12px 6px 9px}}
 /* hero */
 .hero{position:relative;height:100vh;height:100svh;min-height:520px;overflow:hidden;background:var(--night);display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px}
 .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--dp,50% 50%);opacity:0;transition:opacity .18s linear}
@@ -32,10 +33,9 @@ a{color:inherit;text-decoration:none}ul{list-style:none}img{display:block;max-wi
 .mq-track{display:flex;width:max-content}
 .js .mq-track{animation:mq var(--d,50s) linear infinite}
 .js .mq.rev .mq-track{animation-direction:reverse}
-.js .mq:hover .mq-track{animation-play-state:paused}
 .mq ul{display:flex;flex:none;align-items:center}
-.mq li{font-size:clamp(20px,2.3vw,30px);letter-spacing:.03em;white-space:nowrap;padding:clamp(16px,2vw,24px) 0}
-.mq li::after{content:'•';margin:0 clamp(18px,2.4vw,36px)}
+.mq li{font-size:clamp(18px,2.1vw,28px);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;padding:clamp(16px,2vw,24px) 0}
+.mq li::after{content:'•';color:#fff;margin:0 clamp(18px,2.4vw,36px)}
 .mq li.lb{color:var(--yellow);text-transform:uppercase;letter-spacing:.2em;font-size:clamp(15px,1.6vw,20px)}
 @keyframes mq{to{transform:translateX(-50%)}}
 /* griglia foto */
@@ -46,27 +46,27 @@ a{color:inherit;text-decoration:none}ul{list-style:none}img{display:block;max-wi
 @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}.cell.x{display:none}}
 /* testo */
 .wrap{background:#fd6445;position:relative;overflow:hidden}
-.sec{max-width:1000px;margin:0 auto;padding:64px 32px 40px;position:relative;z-index:2}
-h2.big{text-wrap:balance;font-size:clamp(30px,5.4vw,70px);line-height:.98;letter-spacing:-.02em;text-transform:uppercase;text-align:center;margin-bottom:22px}
-.lead+.lead{margin-top:1em}.lead{text-wrap:pretty;max-width:860px;margin:0 auto;text-align:center;font-size:clamp(19px,2.3vw,29px);line-height:1.38}
-.cta{max-width:1000px;margin:32px auto 0;background:var(--night);color:var(--sand);padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.sec{margin:0;padding:clamp(18px,2.6vw,36px);position:relative;z-index:2}
+h2.big{font-size:clamp(32px,6.3vw,100px);line-height:.92;letter-spacing:-.025em;text-transform:uppercase;text-align:left;margin-bottom:.3em}
+.lead+.lead{margin-top:.55em}.lead{max-width:none;margin:0;text-align:left;font-size:clamp(19px,2.75vw,40px);line-height:1.13;letter-spacing:-.012em}
+.cta{max-width:none;margin:clamp(18px,2.4vw,32px) 0 0;background:var(--night);color:var(--sand);padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .cta h3{font-size:clamp(22px,3vw,34px);line-height:1;text-transform:uppercase}.cta h3 em{font-style:normal;color:var(--yellow)}
 .cta p{font-size:14px;margin-top:6px;color:rgba(255,244,224,.82);max-width:520px;line-height:1.4}
 .btn{display:inline-block;flex:none;background:var(--yellow);color:var(--night);padding:12px 22px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;border:3px solid var(--yellow);transition:background .2s,color .2s}
 .btn:hover{background:transparent;color:var(--yellow)}
 /* footer */
 footer{background:var(--night);padding:44px 32px 28px;border-top:1px solid rgba(255,244,224,.08);color:var(--sand)}
-.fg{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px}
+.fg{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
 .fg img{height:64px;width:auto;margin-bottom:12px}.fg p{font-size:13px;text-transform:uppercase;color:rgba(255,244,224,.6);max-width:320px}
 .fg h5{font-weight:normal;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px}
 .fg li{font-size:13px;text-transform:uppercase;color:rgba(255,244,224,.75);padding:3px 0}.fg a:hover{color:var(--yellow)}
 .fb{max-width:1200px;margin:36px auto 0;padding-top:22px;border-top:1px solid rgba(255,244,224,.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,244,224,.4)}
-@media(max-width:900px){.fg{grid-template-columns:1fr}.sec{padding:48px 20px 32px}.cta{flex-direction:column;align-items:flex-start;padding:22px 20px}}
+@media(max-width:900px){.fg{grid-template-columns:1fr}.cta{flex-direction:column;align-items:flex-start;padding:22px 20px}}
 @media(max-width:700px){.slide{object-position:var(--mp,50% 50%)}.hero-title{font-size:4.6vw}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.dots{display:none}.mq-track{width:auto;animation:none!important}.mq ul{flex-wrap:wrap;justify-content:center;padding:0 16px}}
 </style></head><body>
 <nav class="nav" id="nav"><a href="#top"><img src="images/logo-sole.png" alt="Surfin' Jim, logo sole"></a>
-<ul><li><a href="#foto">Edizione 2026</a></li><li><a href="#sponsor">Sponsor</a></li><li><a href="#partner">Partner</a></li></ul></nav>
+<ul><li><a href="#foto">Edizione 2026</a></li><li><a href="#sponsor">Sponsor</a></li><li><a href="#partner">Partner</a></li></ul><a class="ig" href="https://instagram.com/surfinjim" target="_blank" rel="noopener" aria-label="Surfin' Jim su Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@surfinjim</a></nav>
 
 <header class="hero" id="top">
 <img class="slide on" src="images/hero-dj.webp" alt="Due dj di notte sotto l'insegna Surfin' Jim, con il pubblico davanti" style="--dp:50% 35%;--mp:48% 55%" fetchpriority="high">
@@ -94,7 +94,6 @@ footer{background:var(--night);padding:44px 32px 28px;border-top:1px solid rgba(
 <section class="mq" id="sostegno" aria-label="Con il sostegno di"><div class="mq-track"><ul><li class="lb">Con il sostegno di</li><li>Comune di Pesaro</li><li>Pesaro Kite Surf Association</li><li>Sport Village Pesaro</li><li>Caffè Centrale Agency</li><li>Luula</li><li>Be Kind TO APS</li></ul></div></section>
 
 <footer><div class="fg"><div><img src="images/logo-sole.png" alt="Surfin' Jim, logo sole"><p>Festival di sport, musica e cultura<br>sulla spiaggia di Pesaro.</p></div>
-<div><h5>Vai a</h5><ul><li><a href="#foto">Edizione 2026</a></li><li><a href="#sponsor">Sponsor</a></li><li><a href="#partner">Partner</a></li></ul></div>
 <div><h5>Contatti</h5><ul><li><a href="https://instagram.com/surfinjim" target="_blank" rel="noopener">@surfinjim</a></li><li><a href="mailto:jimnights.mail@gmail.com">jimnights.mail@gmail.com</a></li><li><a href="tel:+393662928747">+39 366 2928747</a></li></ul></div></div>
 <div class="fb"><span>© 2026 JIM Factory · Surfin' Jim Festival</span><span>Patrocinato dal Comune di Pesaro</span></div></footer>
 <script>
@@ -102,7 +101,7 @@ document.documentElement.classList.add('js');
 const hero=document.getElementById('top'),slides=[...hero.querySelectorAll('.slide')],dots=[...hero.querySelectorAll('.dots i')],calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 let cur=0;
 function show(i){const o=slides[cur];if(i!==cur){slides.forEach(s=>s.classList.remove('prev'));o.classList.add('prev')}cur=i;slides.forEach((s,k)=>s.classList.toggle('on',k===i));dots.forEach((e,k)=>e.classList.toggle('on',k===i))}
-setInterval(()=>{if(scrollY<hero.offsetHeight&&!document.hidden)show((cur+1)%slides.length)},2500);
+setInterval(()=>{if(scrollY<hero.offsetHeight&&!document.hidden)show((cur+1)%slides.length)},1600);
 
 const cells=[...document.querySelectorAll('.cell.sw')];
 if(cells.length){cells.forEach((c,i)=>{const im=[...c.children];let k=0,vis=false;

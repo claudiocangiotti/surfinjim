@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png"><link rel="icon" type="image/png" sizes="256x256" href="images/favicon.png"><link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <style>
 @font-face{font-family:'Alte Haas Grotesk';src:url('fonts/AlteHaasGroteskBold.woff') format('woff');font-weight:100 900;font-style:normal;font-display:swap}
-@font-face{font-family:'Childlike Blobs';src:url('fonts/Childlike_Blobs.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'Childlike Blobs';src:url('fonts/Childlike_Blobs.ttf') format('truetype');font-display:block}
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--orange:#EE8C53;--red:#F03A2E;--magenta:#E8006E;--yellow:#F5A500;--night:#1A0A05;--sand:#FFF4E0}
 html{scroll-behavior:smooth}
@@ -18,16 +18,16 @@ a{color:inherit;text-decoration:none}ul{list-style:none}img{display:block;max-wi
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:calc(12px + env(safe-area-inset-top,0px)) 20px 12px 12px;display:flex;justify-content:space-between;align-items:center;gap:20px;transition:background .3s}
 .nav.s{background:rgba(26,10,5,.92);backdrop-filter:blur(10px)}
 .nav img{height:46px;width:auto}
-.nav ul{display:flex;gap:28px;margin-left:auto}
-.nav .ig{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sand);border:1px solid rgba(255,244,224,.7);border-radius:99px;padding:7px 14px 7px 11px;transition:background .2s,color .2s,border-color .2s}.nav .ig svg{width:15px;height:15px;flex:none}.nav .ig:hover{background:var(--sand);color:var(--night);border-color:var(--sand)}
+.nav .ig{margin-left:auto}
+.nav .ig{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sand);border:1px solid rgba(255,244,224,.7);border-radius:99px;padding:9px;transition:background .2s,color .2s,border-color .2s}.nav .ig svg{width:18px;height:18px;flex:none}.nav .ig:hover{background:var(--sand);color:var(--night);border-color:var(--sand)}
 .nav ul a{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--sand);display:inline-block;transition:color .2s}
 .nav ul a:hover{color:var(--yellow)}
-@media(max-width:700px){.nav ul{display:none}.nav .ig{margin-left:auto;font-size:11px;padding:6px 12px 6px 9px}}
+@media(max-width:700px){.nav ul{display:none}.nav .ig{margin-left:auto}}
 /* hero */
 .hero{position:relative;height:100vh;height:100svh;min-height:520px;overflow:hidden;background:var(--night);display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px}
 .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--dp,50% 50%);opacity:0;transition:opacity .18s linear}
 .slide.on{opacity:1;z-index:2}.slide.prev{opacity:1;z-index:1;transition:none}
-.hero-title{position:relative;z-index:6;font-family:'Childlike Blobs','Alte Haas Grotesk',cursive;font-weight:normal;font-size:clamp(22px,3.7vw,52px);line-height:1.1;white-space:nowrap;color:var(--sand);text-transform:lowercase;}
+.hero-title{opacity:0;position:relative;z-index:6;font-family:'Childlike Blobs','Alte Haas Grotesk',cursive;font-weight:normal;font-size:clamp(22px,3.7vw,52px);line-height:1.1;white-space:nowrap;color:var(--sand);text-transform:lowercase;}
 /* banner a scorrimento */
 .mq{background:var(--night);color:var(--sand);overflow:hidden;position:relative}
 .mq-track{display:flex;width:max-content}
@@ -64,9 +64,10 @@ footer{background:var(--night);padding:44px 32px 28px;border-top:1px solid rgba(
 @media(max-width:900px){.fg{grid-template-columns:1fr}.cta{flex-direction:column;align-items:flex-start;padding:22px 20px}}
 @media(max-width:700px){.slide{object-position:var(--mp,50% 50%)}.hero-title{font-size:4.6vw}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.dots{display:none}.mq-track{width:auto;animation:none!important}.mq ul{flex-wrap:wrap;justify-content:center;padding:0 16px}}
+.ft .hero-title{opacity:1;transition:opacity .4s}
 </style></head><body>
 <nav class="nav" id="nav"><a href="#top"><img src="images/logo-sole.png" alt="Surfin' Jim, logo sole"></a>
-<ul><li><a href="#foto">Edizione 2026</a></li><li><a href="#sponsor">Sponsor</a></li><li><a href="#partner">Partner</a></li></ul><a class="ig" href="https://instagram.com/surfinjim" target="_blank" rel="noopener" aria-label="Surfin' Jim su Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@surfinjim</a></nav>
+<a class="ig" href="https://instagram.com/surfinjim" target="_blank" rel="noopener" aria-label="Surfin' Jim su Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a></nav>
 
 <header class="hero" id="top">
 <img class="slide on" src="images/hero-dj.webp" alt="Due dj di notte sotto l'insegna Surfin' Jim, con il pubblico davanti" style="--dp:50% 35%;--mp:48% 55%" fetchpriority="high">
@@ -76,7 +77,7 @@ footer{background:var(--night);padding:44px 32px 28px;border-top:1px solid rgba(
 <h1 class="hero-title">surfin' jim</h1>
 </header>
 
-<section class="mq" id="artisti" aria-label="Artisti 2026"><div class="mq-track"><ul><li class="lb">Artisti 2026</li><li>Eternal Love</li><li>James Falco</li><li>Jim Nights</li><li>Reptilia</li><li>MilleAlice</li><li>Mazzoli</li><li>Conservatorio Rossini Jazz Quartet</li><li>Danielle</li><li>Lonely Tabi</li></ul></div></section>
+<section class="mq" id="artisti" aria-label="Artisti 2026"><div class="mq-track"><ul><li class="lb">Artisti 2026</li><li>Eternal Love</li><li>Danielle</li><li>James Falco</li><li>Jim Nights</li><li>Reptilia</li><li>MilleAlice</li><li>Mazzoli</li><li>Conservatorio Rossini Jazz Quartet</li><li>Lonely Tabi</li></ul></div></section>
 
 <section class="grid" id="foto" aria-label="Foto dell'edizione 2026"><div class="cell"><img class="on" src="images/edizione-2026/bagnanti.webp" width="933" height="1400" alt="Amiche in mare" style="--p:50% 55%" loading="lazy"></div><div class="cell sw"><img class="on" src="images/edizione-2026/pubblico-notte.webp" width="933" height="1400" alt="Pubblico sotto le luci di notte" style="--p:50% 65%" loading="lazy"><img src="images/edizione-2026/dj-mosso.webp" width="933" height="1400" alt="Dj al lavoro in luce rossa" style="--p:50% 50%" loading="lazy"></div><div class="cell sw"><img class="on" src="images/edizione-2026/kite-onda.webp" width="788" height="1400" alt="Kitesurf con gli aquiloni in cielo" style="--p:50% 55%" loading="lazy"><img src="images/edizione-2026/kite-jump.webp" width="933" height="1400" alt="Kitesurf in salto sopra le onde" style="--p:50% 45%" loading="lazy"></div><div class="cell"><img class="on" src="images/edizione-2026/dj-palco.webp" width="1800" height="1200" alt="I dj dal palco con il pubblico davanti" style="--p:50% 55%" loading="lazy"></div><div class="cell sw"><img class="on" src="images/edizione-2026/live-chitarra.webp" width="933" height="1400" alt="Live con chitarra" style="--p:50% 40%" loading="lazy"><img src="images/edizione-2026/pubblico-mosso.webp" width="933" height="1400" alt="Pubblico che balla, foto in movimento" style="--p:50% 55%" loading="lazy"></div><div class="cell sw"><img class="on" src="images/edizione-2026/yoga.webp" width="933" height="1400" alt="Yoga in spiaggia" style="--p:50% 55%" loading="lazy"><img src="images/edizione-2026/vela-uomo.webp" width="933" height="1400" alt="Uomo in acqua accanto a una piccola barca a vela" style="--p:50% 55%" loading="lazy"></div><div class="cell"><img class="on" src="images/edizione-2026/extra-198.webp" width="1200" height="1800" alt="Live di notte sotto l'insegna Surfin' Jim" style="--p:50% 50%" loading="lazy"></div><div class="cell sw"><img class="on" src="images/edizione-2026/talk.webp" width="933" height="1400" alt="Talk in spiaggia sotto l'insegna Surfin' Jim" style="--p:50% 55%" loading="lazy"><img src="images/edizione-2026/tshirt.webp" width="933" height="1400" alt="T-shirt Surfin' Jim" style="--p:50% 40%" loading="lazy"></div><div class="cell sw x"><img class="on" src="images/edizione-2026/corsa-gruppo.webp" width="933" height="1400" alt="Corsa di gruppo" style="--p:50% 60%" loading="lazy"><img src="images/edizione-2026/sup.webp" width="934" height="1400" alt="SUP" style="--p:50% 60%" loading="lazy"></div><div class="cell x"><img class="on" src="images/edizione-2026/pubblico-telefono.webp" width="933" height="1400" alt="Ragazza che filma il concerto con il telefono" style="--p:50% 45%" loading="lazy"></div><div class="cell sw x"><img class="on" src="images/edizione-2026/canoa.webp" width="933" height="1400" alt="Canoa" style="--p:50% 60%" loading="lazy"><img src="images/edizione-2026/extra-100.webp" width="1200" height="1800" alt="Insegna Surfin' Jim al tramonto" style="--p:50% 60%" loading="lazy"></div><div class="cell x"><img class="on" src="images/edizione-2026/dj-schiena.webp" width="933" height="1400" alt="Dj di spalle e pubblico di notte" style="--p:50% 60%" loading="lazy"></div><div class="cell x"><img class="on" src="images/edizione-2026/live-band.webp" width="933" height="1400" alt="Band sul palco in luce rossa" style="--p:50% 55%" loading="lazy"></div><div class="cell sw x"><img class="on" src="images/edizione-2026/talk-sundek.webp" width="1800" height="1200" alt="Talk in spiaggia con gli ospiti seduti sul palco" style="--p:45% 50%" loading="lazy"><img src="images/edizione-2026/vela.webp" width="933" height="1400" alt="Preparazione della vela in spiaggia" style="--p:50% 50%" loading="lazy"></div><div class="cell x"><img class="on" src="images/edizione-2026/dj-luce-rossa.webp" width="1800" height="1199" alt="Dj set in luce rossa" style="--p:52% 55%" loading="lazy"></div><div class="cell x"><img class="on" src="images/edizione-2026/talk-panel.webp" width="933" height="1400" alt="Talk in spiaggia sotto l'insegna Surfin' Jim" style="--p:50% 40%" loading="lazy"></div></section>
 
@@ -97,6 +98,7 @@ footer{background:var(--night);padding:44px 32px 28px;border-top:1px solid rgba(
 <div><h5>Contatti</h5><ul><li><a href="https://instagram.com/surfinjim" target="_blank" rel="noopener">@surfinjim</a></li><li><a href="mailto:jimnights.mail@gmail.com">jimnights.mail@gmail.com</a></li><li><a href="tel:+393662928747">+39 366 2928747</a></li></ul></div></div>
 <div class="fb"><span>© 2026 JIM Factory · Surfin' Jim Festival</span><span>Patrocinato dal Comune di Pesaro</span></div></footer>
 <script>
+(function(){var d=document.documentElement,sh=function(){d.classList.add("ft")};try{Promise.race([document.fonts.load("1em 'Childlike Blobs'","surfin' jim"),new Promise(function(r){setTimeout(r,2500)})]).then(sh,sh)}catch(e){sh()}})();
 document.documentElement.classList.add('js');
 const hero=document.getElementById('top'),slides=[...hero.querySelectorAll('.slide')],dots=[...hero.querySelectorAll('.dots i')],calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 let cur=0;
@@ -113,7 +115,7 @@ if(!calm)document.querySelectorAll('.mq').forEach(m=>{
   const tr=m.querySelector('.mq-track'),ul=tr.querySelector('ul'),items=[...ul.children];
   const fill=()=>{let g=0;while(ul.scrollWidth<screen.width*1.1&&g++<8)items.forEach(li=>{const c=li.cloneNode(true);c.setAttribute('aria-hidden','true');ul.appendChild(c)});
   if(tr.children.length<2){const c=ul.cloneNode(true);c.setAttribute('aria-hidden','true');tr.appendChild(c)}
-  tr.style.setProperty('--d',Math.round(ul.scrollWidth/55)+'s')};
+  tr.style.setProperty('--d',Math.round(ul.scrollWidth/90)+'s')};
   (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fill);
 });
 </script></body></html>

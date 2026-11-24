@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Surfin' Jim Festival · Edizione 2026</title>
+<meta name="description" content="L'aftermovie dell'edizione 2026 di Surfin' Jim, Kite Beach Pesaro.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48.png"><link rel="icon" type="image/png" sizes="256x256" href="../images/favicon.png"><link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:#000;overflow:hidden}
+body{-webkit-font-smoothing:antialiased}
+video{position:fixed;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
+.logo{position:fixed;z-index:10;top:calc(12px + env(safe-area-inset-top,0px));left:12px}
+.logo img{display:block;height:46px;width:auto}
+button{font:inherit;color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.play{position:fixed;z-index:9;left:50%;top:64%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;border:2px solid rgba(255,255,255,.85);background:rgba(0,0,0,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;transition:transform .2s,background .2s}
+.play:hover{transform:scale(1.06);background:rgba(0,0,0,.55)}
+.play svg{width:34px;height:34px;margin-left:5px;fill:#fff}
+.snd{position:fixed;z-index:10;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.7);background:rgba(0,0,0,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;place-items:center;transition:background .2s}
+.snd:hover{background:rgba(0,0,0,.6)}
+.snd svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.snd .on{display:none}.snd.unm .on{display:block}.snd.unm .off{display:none}
+.live .play{display:none}.live .snd{display:grid}
+@media(max-width:700px){.play{width:72px;height:72px;margin:-36px 0 0 -36px}}
+</style></head><body>
+<video id="v" src="aftermovie.mp4" poster="poster.jpg" loop playsinline preload="auto"></video>
+<a class="logo" href="../" aria-label="Torna alla home"><img src="../images/logo-sole.png" alt="Surfin' Jim"></a>
+<button class="play" id="p" aria-label="Avvia il video"><svg viewBox="0 0 24 24"><path d="M6 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 6 3.5z"/></svg></button>
+<button class="snd" id="s" aria-label="Attiva l'audio"><svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><g class="off"><path d="m16 9 5 6M21 9l-5 6"/></g><g class="on"><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></g></svg></button>
+<script>
+(function(){
+var v=document.getElementById('v'),p=document.getElementById('p'),s=document.getElementById('s'),t,started=false,auto=false;
+function ui(){var on=!v.muted;s.classList.toggle('unm',on);s.setAttribute('aria-label',on?'Disattiva l\u2019audio':'Attiva l\u2019audio')}
+function go(muted){clearTimeout(t);started=true;auto=muted;v.muted=muted;v.currentTime=0;document.body.classList.add('live');ui();
+ var r=v.play();if(r&&r.catch)r.catch(function(){started=false;document.body.classList.remove('live')})}
+p.addEventListener('click',function(){go(false)});
+s.addEventListener('click',function(){
+ if(v.muted){v.muted=false;if(auto){auto=false;v.currentTime=0}if(v.paused)v.play()}else{v.muted=true}
+ ui()});
+t=setTimeout(function(){if(!started)go(true)},5000);
+document.addEventListener('visibilitychange',function(){if(!started)return;if(document.hidden)v.pause();else v.play()});
+})();
+</script>
+</body></html>
